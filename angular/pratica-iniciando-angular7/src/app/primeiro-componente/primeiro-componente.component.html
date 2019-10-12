@@ -1,0 +1,37 @@
+<p>Meu primeiro componente Angular</p>
+
+<label>Funcionario</label>
+<input [(ngModel)]="nome">
+<br>
+<label>Salário</label>
+<input [(ngModel)]="salario">
+
+<br>
+<div *ngIf="salario > 1000">
+    <label>Bonus</label>
+    <input [(ngModel)]="bonus">
+</div>
+
+<button type="button" (click)="adicionarFuncionario(funcionarios)">Adicionar Funcionário</button>
+
+<table>
+    <thead>
+    <th>Funcionário</th>
+    <th>Salário</th>
+    <th>Bonus</th>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let funcionario of funcionariosService.funcionarios; let i = index" [id]="'index' + i">
+        <!--<td>{{funcionario.name}}</td>-->
+        <!--<td>{{funcionario.salario}}</td>-->
+
+        <td [innerHTML]="funcionario.name"></td>
+        <td [innerHTML]="funcionario.salario"
+            [ngClass]="verificarSalario(funcionario)">
+
+        </td>
+        <td>{{bonus}}</td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste 1 Jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="tabela_incluir" class="row">
+   <table class="table">
+       <tbody>
+        <th>NOME</th>
+        <th>FUNÇÃO</th>
+        <th>IDADE</th>
+       </tbody>
+
+       <tbody class="inserirLinha">
+       <tr>
+           <td>
+               <input class="form-control" value="Tiago Silva Pereira" placeholder="Nome">
+           </td>
+
+           <td>
+               <input class="form-control" value="30" placeholder="Idade">
+           </td>
+
+           <td>
+               <input class="form-control" value="tiagosilvapereira1989@gmail.com" placeholder="Email">
+           </td>
+
+           <td>
+               <img class="botao_adicionar" src="add.png">
+           </td>
+       </tr>
+       </tbody>
+
+   </table>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var inserirLinha =
+            '<tr>'+
+                '<td><input class="form-control" placeholder="Nome"></td>'+
+                '<td><input class="form-control" placeholder="Idade">'+'</td>'+
+                '<td><input class="form-control" placeholder="Email">'+'</td>'+
+                '<td>' +
+                    '<img class="botao_adicionar" src="add.png">' +
+                    '<img class="botao_remover" src="remove.png">' +
+                '</td>'+
+            '</tr>'
+        ;
+
+        $('.inserirLinha').on('click', '.botao_adicionar', function (e) {
+            $('.inserirLinha').append(inserirLinha);
+
+        });
+
+        $(".inserirLinha").on("click", ".botao_remover", function(e){
+            $(this).closest('tr').remove();
+        });
+    });
+
+</script>
+</html>

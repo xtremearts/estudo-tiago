@@ -1,0 +1,28 @@
+<h1>Nossos empregados</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Salário</th>
+        <th>Bonus</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let funcionario of funcionariosService.funcionarios; let i=index;" [id]="'tr' + i">
+        <!--<td>{{funcionario.name}}</td>-->
+        <!--<td>{{funcionario.salario}}</td>-->
+
+        <td [innerHTML]="funcionario.name"></td>
+        <td [innerHTML]="funcionario.salario"
+            [ngClass]="getSalaryColor(funcionario)"
+        >
+        <td [innerHTML]="funcionario.bonus"></td>
+            <!--[style.color]="getSalaryColor(funcionario)"-->
+
+
+
+
+    </tr>
+    </tbody>
+</table>
